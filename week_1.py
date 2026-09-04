@@ -74,20 +74,21 @@ def ReverseComplement(Pattern):
 
 # PatternMatching: Returns the exact starting positions (0-based indices) of a motif to locate where specific elements occur in the genome.
 def PatternMatching(Pattern, Genome):
-    positions = [] # output variable
+    positions = []
     for i in range(len(Genome) - len(Pattern) + 1):
         if Genome[i:i + len(Pattern)] == Pattern:
             positions.append(i)
-
-
-    return positions     
+    return positions
 
 # Printing the results:
-print("--- Week 1 ---")
-print(f"PatternCount: {PatternCount('GCGCG', 'GCG')}")
-print(f"FrequencyMap: {FrequencyMap('ACGTTGCATGTCACGTTTTGCGTCACTACACAGGACGTT', 3)}")
-print(f"FrequentWords: {FrequentWords('ACGTTGCATGTCACGTTTTGCGTCACTACACAGGACGTT', 3)}")
-print(f"Reverse: {Reverse(Pattern)}")
-print(f"Complement: {Complement(Pattern)}")
-print(f"ReverseComplement: {ReverseComplement('AAAACCCGGT')}")
-print(f"PatternMatching: {PatternMatching(Pattern, Genome)}")
+if __name__ == "__main__":
+    Pattern = "ACG"
+    Genome = "AAACCCGGT"
+    print("--- Week 1 ---")
+    print(f"PatternCount: {PatternCount('GCGCG', 'GCG')}")
+    print(f"FrequencyMap: {FrequencyMap('ACGTTGCATGTCACGTTTTGCGTCACTACACAGGACGTT', 3)}")
+    print(f"FrequentWords: {FrequentWords('ACGTTGCATGTCACGTTTTGCGTCACTACACAGGACGTT', 3)}")
+    print(f"Reverse: {Reverse(Pattern)}")
+    print(f"Complement: {Complement(Pattern)}")
+    print(f"ReverseComplement: {ReverseComplement('AAAACCCGGT')}")
+    print(f"PatternMatching: {PatternMatching(Pattern, Genome)}")
