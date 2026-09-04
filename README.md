@@ -32,3 +32,21 @@ Cellular replication depends on the precise identification of the **origin of re
 * **`Complement(Pattern)`**: Applies Watson-Crick base-pairing rules (A <-> T, C <-> G).
 * **`ReverseComplement(Pattern)`**: Models the opposing strand of the DNA double helix for bidirectional pattern searches.
 * **`PatternMatching(Pattern, Genome)`**: Returns the exact starting positions (0-indexed) of a motif across a genome.
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+---
+
+## 🧬 Week 2: Finding Replication Origins in Bacterial Genomes (Skew & Mismatches)
+
+### Biological Context
+DNA replication is asymmetrical: one strand (leading) is synthesized continuously, while the other (lagging) is synthesized in fragments. This leads to a deamination process where Cytosine (C) mutates into Thymine (T), causing a shortage of C on the single-stranded leading strand. Measuring the imbalance between Guanine and Cytosine (**GC Skew**) helps locate the exact origin of replication (*oriC*) where the skew reaches its minimum value. Additionally, real binding sites contain evolutionary mutations, requiring algorithms tolerant to **mismatches** (Hamming Distance).
+
+### Implemented Algorithms (week_2.py)
+
+* **`SkewArray(Genome)`**: Computes the running difference between Guanine (G) and Cytosine (C) counts across the genome.
+* **`MinimumSkew(Genome)`**: Finds the genomic positions where the GC skew reaches its minimum value (identifying candidate *oriC* locations).
+* **`HammingDistance(p, q)`**: Calculates the number of point mutations (mismatches) between two equal-length DNA sequences.
+* **`ApproximatePatternMatching(Text, Pattern, d)`**: Locates starting positions of a motif allowing up to d mismatches.
+* **`ApproximatePatternCount(Pattern, Text, d)`**: Counts total occurrences of a motif within a genome given a mismatch threshold d.
+* **`FasterSymbolArray(Genome, symbol)`**: Uses a sliding window mechanism to track symbol frequencies across circular genomes efficiently.
